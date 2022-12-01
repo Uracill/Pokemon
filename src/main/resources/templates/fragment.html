@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragment</title>
+</head>
+<body>
+
+<div th:fragment = "navBar">
+  <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+    <div class="container">
+      <a class="navbar-brand" href="#" th:href="@{/}">
+        <img src="https://www.pokewiki.de/images/2/26/Pokémon-Icon_025.gif" alt="Pikachu" width="30" height="24" class="d-inline-block align-text-top">
+          Pok&#233mon Team
+      </a>
+        <div class="collapse navbar-collapse">
+            <a class="nav-link active" href="#" th:href="@{/}">Home</a>
+            <a class="nav-link active mx-2" href="#" th:href="@{/credit}">Credit</a>
+        </div>
+    </div>
+  </nav>
+</div>
+
+<!--
+<div th:fragment="form">
+    <form class="row g-3">
+        <div class="col-12">
+            <label class="form-label">Name</label>
+            <input type = "text" th:field = "*{name}" placeholder="Name" class = "form-control" th:errorclass="is-invalid">
+            <div class="invalid-feedback d-block" th:errors="*{name}"></div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">First Type</label>
+            <select class="form-control" th:field = "*{firstType}">
+                <option selected th:value="Normal">Normal</option>
+                <option th:value="Fighting">Fighting</option>
+                <option th:value="Flying">Flying</option>
+                <option th:value="Poison">Poison</option>
+                <option th:value="Ground">Ground</option>
+                <option th:value="Rock">Rock</option>
+                <option th:value="Bug">Bug</option>
+                <option th:value="Ghost">Ghost</option>
+                <option th:value="Steel">Steel</option>
+                <option th:value="Fire">Fire</option>
+                <option th:value="Water">Water</option>
+                <option th:value="Grass">Grass</option>
+                <option th:value="Electric">Electric</option>
+                <option th:value="Psychic">Psychic</option>
+                <option th:value="Ice">Ice</option>
+                <option th:value="Dragon">Dragon</option>
+                <option th:value="Dark">Dark</option>
+                <option th:value="Fairy">Fairy</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Second Type</label>
+            <select class="form-control" th:field = "*{secondType}">
+                <option selected th:value="'-'">-</option>
+                <option th:value="Normal">Normal</option>
+                <option th:value="Fighting">Fighting</option>
+                <option th:value="Flying">Flying</option>
+                <option th:value="Poison">Poison</option>
+                <option th:value="Ground">Ground</option>
+                <option th:value="Rock">Rock</option>
+                <option th:value="Bug">Bug</option>
+                <option th:value="Ghost">Ghost</option>
+                <option th:value="Steel">Steel</option>
+                <option th:value="Fire">Fire</option>
+                <option th:value="Water">Water</option>
+                <option th:value="Grass">Grass</option>
+                <option th:value="Electric">Electric</option>
+                <option th:value="Psychic">Psychic</option>
+                <option th:value="Ice">Ice</option>
+                <option th:value="Dragon">Dragon</option>
+                <option th:value="Dark">Dark</option>
+                <option th:value="Fairy">Fairy</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Catch Rate</label>
+            <input type = "text" th:field = "*{catchRate}" placeholder="0" class = "form-control" th:errorclass="is-invalid">
+            <div class="invalid-feedback d-block" th:errors="*{catchRate}"></div>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Gender</label>
+            <div th:each="gen: ${gender_value}" >
+                <input type = "radio" th:field="*{gender}" th:value="${gen}" class = "form-control" th:errorclass="is-invalid">
+                <label th:text="${gen}">Gender</label>
+                <div class="invalid-feedback d-block" th:errors="${gen}"></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label class="form-check-label">
+                Already Caught?
+            </label>
+            <input type = "checkbox" th:field = "*{caught}" >
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Add Pok&#233mon</button>
+            <a th:href = "@{/}" class = "btn btn-danger"> Cancel </a>
+        </div>
+    </form>
+</div>
+-->
+
+</body>
+</html>

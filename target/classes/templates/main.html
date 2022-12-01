@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Pok&#233mon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+<div th:replace = "fragment.html :: navBar"> </div>
+<div align = "center" class = "container my-2">
+
+    <div class="container">
+        <div class="row">
+            <div class="col fw-bold">
+                Name
+            </div>
+            <div class="col fw-bold">
+                First Type
+            </div>
+            <div class="col fw-bold">
+                Second Type
+            </div>
+            <div class="col fw-bold">
+                Catch Rate/Chance
+            </div>
+            <div class="col fw-bold">
+                Gender
+            </div>
+            <div class="col fw-bold">
+                Already Caught?
+            </div>
+            <div class="col fw-bold">
+                Action
+            </div>
+        </div>
+        <div>
+            <div th:each = "pokemon: ${pokemons}" class = "row p-1">
+                <div class = "col" th:text="*{pokemon.getName()}"></div>
+                <div class = "col" th:text="*{pokemon.getFirstType()}"></div>
+                <div class = "col" th:text="*{pokemon.getSecondType}"></div>
+                <div class = "col" th:text="*{pokemon.catchRateToString()}"></div>
+                <div class = "col" th:text="*{pokemon.getGender()}"></div>
+                <div class = "col" th:text="*{pokemon.caughtToString()}"></div>
+                <div class = "col">
+                    <a th:href="@{/edit/{id}(id=*{pokemon.getId()})}" class = "btn btn-primary">Edit</a>
+                    <a method = "post" th:href="@{/delete/{id}(id=*{pokemon.getId()})}" <!--Kein Post Mapping -->
+                       class = "btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a th:href="@{/add}" class ="btn btn-primary btn-sm mb-3"> Add Pok&#233mon</a>
+    <form method = "Get">
+        <input type="text" placeholder="Filter" name="filter" th:value="${filter}">
+        <button type = "submit" class = "btn btn-primary btn-sm mb-1"> Set Filter</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+<!--
+    <table border = "5" class = "table table-striped table-responsive-md">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>First Type</th>
+                <th>Second Type</th>
+                <th>Catch Rate/Chance</th>
+                <th>Gender</th>
+                <th>Already Caught?</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each = "pokemon : ${pokemons}">
+                <td th:text = "*{pokemon.getName()}"></td>
+                <td th:text = "*{pokemon.getFirstType()}"></td>
+                <td th:text = "*{pokemon.getSecondType()}"></td>
+                <td th:text = "*{pokemon.catchRateToString()}"></td>
+                <td th:text = "*{pokemon.getGender()}"></td>
+                <td th:text = "*{pokemon.caughtToString()}"></td>
+                <td> <a th:href="@{/edit/{id}(id=*{pokemon.getId()})}" class = "btn btn-primary">Edit</a>
+                    <a method = "post" th:href="@{/delete/{id}(id=*{pokemon.getId()})}"
+                       class = "btn btn-danger">Delete</a></td>
+            </tr>
+        </tbody>
+    </table> -->
