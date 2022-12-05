@@ -36,13 +36,9 @@ public class MainService {
     }
 
     public PokemonDto getPokemonDtoById(long id) {
-        Optional<Pokemon> optional = _pokemonRepository.findById(id);
-        if(optional.isPresent()) {
-            return PokemonDto.PokemonToDto(optional.get());
-        }
-        else {
-            throw new RuntimeException("No Pokemon found for ID:" + id);
-        }
+        return _pokemonRepository.findById(id)
+            .map(PokemonDto::PokemonToDto)
+            .orElseThrow(() -> new RuntimeException("No Pokemon found for ID:" + id))
     }
 
     public List<Pokemon> getFilteredPokemon(String filterString) {
